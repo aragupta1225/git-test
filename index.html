@@ -2,19 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Movie Explorer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+
+    <!-- 🌙 Dark Mode Toggle -->
+    <button id="theme-toggle">🌙</button>
+
     <div id="main-div">
+
         <h1 id="main-h1">Movies</h1>
-        <div class="row">
-            <input type="search" autofocus autocomplete="off" name="search" id="search"  placeholder="Search here...">
+
+        <!-- 🔎 Search -->
+        <input 
+            type="search" 
+            id="search" 
+            placeholder="Search here..." 
+            autocomplete="off"
+        >
+
+        <!-- 🎭 Genres -->
+        <div id="genres">
+            <button class="genre active">All</button>
+            <button class="genre">Action</button>
+            <button class="genre">Comedy</button>
+            <button class="genre">Drama</button>
+            <button class="genre">Horror</button>
+            <button class="genre">Romance</button>
+            <button class="genre">Sci-Fi</button>
         </div>
-        <div class="row" id="movie-box">
+
+        <!-- 🎬 Movie Grid -->
+        <div id="movie-box"></div>
+
+        <!-- ⬅➡ Pagination -->
+        <div id="pagination">
+            <button id="prev">⬅ Prev</button>
+            <span id="page-number">Page 1</span>
+            <button id="next">Next ➡</button>
         </div>
+
     </div>
+
     <script src="index.js"></script>
 </body>
 </html>

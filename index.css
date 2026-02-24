@@ -1,71 +1,243 @@
-:root {
-  --main-bg-color: brown;
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-*{
-    margin: 0px;
-    padding: 0px;
+
+/* ================= BODY ================= */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fceff9, #e0f7fa, #fff5e6);
+    min-height: 100vh;
+    color: #444;
+    transition: background 0.4s ease, color 0.4s ease;
 }
-#main-div{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-style: italic;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-#main-h1{
-    font-weight: 600;
-}
-#search{
-    width: 40vw;
-    border-radius: 10px;
-    height: 40px;
-    font-size: large;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 10px;
-    margin: 10px;
-}
-#movie-box{
-    width: 90vw;
-    height: auto;
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-}
-.box{
-    height: 40vh;
-    width: 30vw;
-    border: 2px solid black;
-    border-radius: 10px;
-    position: relative;
-}
-img{
-    height: 40vh;
-    border-radius: 10px;
-    width: 30vw;
-    transform: scale(1);
-    transition: all 0.1s ease;
-    object-fit:cover;
-}
-.overlay{
-    position: absolute;
-    opacity: 0;
-    transform: translateY(100px);
-    /* transition: property duration timing-function; */
-    transition: all 0.8s ease;
-    bottom: 0px;
-    padding: 12px;
-    /* background-color: var(--main-bg-color); */
-    background: rgba(0, 0.6, 0.6, 0.6);
+
+/* ================= DARK MODE ================= */
+
+body.dark {
+    background: linear-gradient(135deg, #141E30, #243B55);
     color: white;
 }
-.box:hover .overlay{
-    opacity: 1;
+
+/* ================= TOGGLE ================= */
+
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #5e548e, #9f86c0);
+    color: white;
+    box-shadow: 0 6px 18px rgba(94, 84, 142, 0.4);
+    transition: 0.3s ease;
+    z-index: 1000;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* ================= MAIN ================= */
+
+#main-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px 40px;
+}
+
+/* ================= HEADING ================= */
+
+#main-h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    background: linear-gradient(90deg, #ff9a9e, #a18cd1, #89f7fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ================= SEARCH ================= */
+
+#search {
+    width: 50vw;
+    max-width: 500px;
+    height: 45px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: #ffffffcc;
+    box-shadow: 0 4px 15px rgba(160, 132, 202, 0.2);
+}
+
+/* ================= GENRES ================= */
+
+#genres {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.genre {
+    padding: 8px 18px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: #ffffffcc;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.genre:hover {
+    transform: translateY(-2px);
+}
+
+.genre.active {
+    background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+    color: white;
+}
+
+/* ================= MOVIE GRID ================= */
+
+#movie-box {
+    width: 95%;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* ================= MOVIE CARD ================= */
+
+.box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #ffffffcc;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.4s ease;
+}
+
+.box:hover {
+    transform: translateY(-8px);
+}
+
+.box img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: 0.4s ease;
+}
+
+.box:hover img {
+    transform: scale(1.05);
+}
+
+/* ================= OVERLAY ================= */
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(
+        to top,
+        rgba(255,255,255,1),
+        rgba(255,240,246,0.95),
+        transparent
+    );
+    transform: translateY(100%);
+    transition: 0.4s ease;
+}
+
+.box:hover .overlay {
     transform: translateY(0);
 }
-.box:hover img{
-     transform: scale(1.08);
+
+.overlay h2 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #5e548e;
+}
+
+.stars {
+    font-weight: 600;
+}
+
+.overlay p {
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
+
+/* ================= PAGINATION ================= */
+
+#pagination {
+    margin-top: 50px;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+#pagination button {
+    padding: 8px 18px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+    color: white;
+    transition: 0.3s ease;
+}
+
+#pagination button:hover {
+    transform: translateY(-2px);
+}
+
+#pagination span {
+    font-weight: 600;
+}
+
+/* ================= DARK MODE OVERRIDES ================= */
+
+body.dark .box {
+    background: rgba(255,255,255,0.08);
+}
+
+body.dark .overlay {
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.95),
+        rgba(0,0,0,0.7),
+        transparent
+    );
+}
+
+body.dark .overlay h2,
+body.dark .overlay p {
+    color: white;
+}
+
+body.dark .genre {
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+body.dark .genre.active {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
 }
