@@ -1,4 +1,4 @@
-/* ================= RESET ================= */
+
 
 * {
     margin: 0;
@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-/* ================= BODY ================= */
+
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -16,14 +16,13 @@ body {
     transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* ================= DARK MODE ================= */
+
 
 body.dark {
     background: linear-gradient(135deg, #141E30, #243B55);
     color: white;
 }
 
-/* ================= TOGGLE ================= */
 
 #theme-toggle {
     position: fixed;
@@ -46,7 +45,7 @@ body.dark {
     transform: scale(1.1);
 }
 
-/* ================= MAIN ================= */
+
 
 #main-div {
     display: flex;
@@ -55,7 +54,7 @@ body.dark {
     padding: 80px 20px 40px;
 }
 
-/* ================= HEADING ================= */
+
 
 #main-h1 {
     font-size: 3rem;
@@ -66,7 +65,7 @@ body.dark {
     -webkit-text-fill-color: transparent;
 }
 
-/* ================= SEARCH ================= */
+
 
 #search {
     width: 50vw;
@@ -81,7 +80,7 @@ body.dark {
     box-shadow: 0 4px 15px rgba(160, 132, 202, 0.2);
 }
 
-/* ================= GENRES ================= */
+
 
 #genres {
     margin-top: 25px;
@@ -111,7 +110,6 @@ body.dark {
     color: white;
 }
 
-/* ================= MOVIE GRID ================= */
 
 #movie-box {
     width: 95%;
@@ -121,7 +119,7 @@ body.dark {
     gap: 30px;
 }
 
-/* ================= MOVIE CARD ================= */
+
 
 .box {
     position: relative;
@@ -148,7 +146,7 @@ body.dark {
     transform: scale(1.05);
 }
 
-/* ================= OVERLAY ================= */
+
 
 .overlay {
     position: absolute;
@@ -184,7 +182,7 @@ body.dark {
     margin-top: 8px;
 }
 
-/* ================= PAGINATION ================= */
+
 
 #pagination {
     margin-top: 50px;
@@ -213,7 +211,6 @@ body.dark {
     font-weight: 600;
 }
 
-/* ================= DARK MODE OVERRIDES ================= */
 
 body.dark .box {
     background: rgba(255,255,255,0.08);
