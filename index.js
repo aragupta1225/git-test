@@ -13,7 +13,7 @@ const pageNumber = document.getElementById("page-number");
 let currentPage = 1;
 let currentQuery = "Avengers";
 
-/* ⭐ Convert rating to stars */
+/* Convert rating to stars */
 
 function getStars(rating) {
     const numeric = parseFloat(rating);
@@ -23,7 +23,7 @@ function getStars(rating) {
     return "⭐".repeat(rounded) + "☆".repeat(5 - rounded);
 }
 
-/* 🎬 Fetch Movies */
+
 
 async function getMovies(query, page = 1) {
     try {
@@ -43,7 +43,7 @@ async function getMovies(query, page = 1) {
     }
 }
 
-/* 🎬 Display Movies */
+
 
 async function showMovies(movies) {
     movieBox.innerHTML = "";
@@ -76,7 +76,7 @@ async function showMovies(movies) {
     }
 }
 
-/* 🔎 Search */
+
 
 searchInput.addEventListener("keyup", e => {
     const query = e.target.value.trim();
@@ -88,7 +88,7 @@ searchInput.addEventListener("keyup", e => {
     }
 });
 
-/* 🎭 Genre Simulation */
+/*Genre*/
 
 genreButtons.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -105,7 +105,7 @@ genreButtons.forEach(btn => {
     });
 });
 
-/* ⬅➡ Pagination */
+/*Pagination */
 
 nextBtn.addEventListener("click", () => {
     currentPage++;
@@ -119,7 +119,7 @@ prevBtn.addEventListener("click", () => {
     }
 });
 
-/* 🌙 Dark Mode */
+/* Dark Mode */
 
 toggleBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark");
